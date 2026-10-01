@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="barkhod — plugins, gameplay systems and the backend behind Minecraft servers like MineHeaven and PicoCraft.">
+<meta name="theme-color" content="#000000">
+<script>try{if(localStorage.getItem("barkhod-theme")==="light"){document.documentElement.setAttribute("data-theme","light");document.querySelector('meta[name="theme-color"]').setAttribute("content","#eaf3ff");}}catch(e){}</script>
+<title>barkhod</title>
+<link rel="icon" type="image/png" href="assets/img/logo.png?v=1">
+<link rel="apple-touch-icon" href="assets/img/logo.png?v=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neuton:wght@800&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
+</head>
+<body data-page="1">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar" id="navbar">
+<div class="topbar-in">
+<div class="topbar-start">
+<a class="brand" href="#about" data-goto="1" aria-label="barkhod home"><img class="brand-mark" src="assets/img/logo.png?v=1" alt="" width="32" height="32" fetchpriority="high"><span class="brand-name">barkhod</span></a>
+<a class="ravell-link" href="ravell/" aria-label="Ravell"><img src="assets/img/ravell-icon.webp" alt="" width="900" height="900"><span class="ravell-link-name" aria-hidden="true">Ravell</span></a>
+</div>
+<div class="lamp" id="lamp">
+<button class="lamp-body" id="lampBody" type="button" role="switch" aria-checked="false" aria-label="Lamp: switch to light mode">
+<svg class="lamp-svg" viewBox="0 0 64 56" aria-hidden="true" focusable="false">
+<defs>
+<linearGradient id="lampShadeFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="lamp-shade-a"/><stop offset="1" class="lamp-shade-b"/></linearGradient>
+<radialGradient id="lampGlowFill"><stop offset="0" stop-color="#fff8dd"/><stop offset=".4" stop-color="#ffe08a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd166" stop-opacity="0"/></radialGradient>
+</defs>
+<circle class="lamp-halo" cx="32" cy="37" r="22" fill="url(#lampGlowFill)"/>
+<line class="lamp-wire" x1="32" y1="0" x2="32" y2="11"/>
+<rect class="lamp-cap" x="27.5" y="10.5" width="9" height="6.5" rx="1.6"/>
+<path class="lamp-shade" d="M26.5 16.5h11L50 33.5Q32 38.6 14 33.5Z" fill="url(#lampShadeFill)"/>
+<path class="lamp-shine" d="M26.2 19.6 19.4 30.4"/>
+<ellipse class="lamp-rim" cx="32" cy="33.9" rx="17.6" ry="2.5"/>
+<circle class="lamp-bulb" cx="32" cy="37.4" r="4.4"/>
+<circle class="lamp-bulb-spark" cx="30.4" cy="35.9" r="1.2"/>
+</svg>
+<span class="lamp-cone" aria-hidden="true"></span>
+</button>
+</div>
+<nav class="socials" aria-label="Social links">
+<button class="social-icon" type="button" data-goto="4" aria-label="Discord page" data-tip="Discord"><img src="assets/icons/discord.svg" alt="" width="22" height="22"></button>
+<a class="social-icon" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer" aria-label="GitHub" data-tip="GitHub"><img class="icon-mono" src="assets/icons/github.svg" alt="" width="22" height="22"></a>
+<a class="social-icon" href="https://www.youtube.com/@Barkhod" target="_blank" rel="noreferrer" aria-label="YouTube" data-tip="YouTube"><img src="assets/icons/youtube.svg" alt="" width="22" height="22"></a>
+<button class="social-icon is-off" type="button" aria-disabled="true" aria-label="Instagram, not available yet" data-tip="Not now ❌"><img src="assets/icons/instagram.svg" alt="" width="22" height="22"></button>
+</nav>
+</div>
+</header>
+
+<nav class="top-pager" id="topPager" aria-label="Site pages">
+<span class="top-pager-glow" aria-hidden="true"></span>
+<span class="top-pager-slider" id="topPagerSlider" aria-hidden="true"></span>
+<div class="top-pager-list" role="tablist" aria-label="Site pages" aria-orientation="vertical">
+<button class="top-page-btn" type="button" role="tab" data-goto="1" title="About" aria-label="Page 1 of 4, About" aria-selected="true"><b aria-hidden="true">01</b><span>About</span></button>
+<button class="top-page-btn" type="button" role="tab" data-goto="2" title="Experience" aria-label="Page 2 of 4, Experience" aria-selected="false" tabindex="-1"><b aria-hidden="true">02</b><span>Experience</span></button>
+<button class="top-page-btn" type="button" role="tab" data-goto="3" title="Work" aria-label="Page 3 of 4, Work" aria-selected="false" tabindex="-1"><b aria-hidden="true">03</b><span>Work</span></button>
+<button class="top-page-btn" type="button" role="tab" data-goto="4" title="Discord" aria-label="Page 4 of 4, Discord" aria-selected="false" tabindex="-1"><b aria-hidden="true">04</b><span>Discord</span></button>
+</div>
+<span class="top-pager-count" id="topPagerCount" aria-hidden="true"><b>01</b> / 04</span>
+<span class="top-pager-progress" aria-hidden="true"><i id="topPagerProgress"></i></span>
+</nav>
+
+<main id="main">
+
+<section class="page page-home" id="about" data-page="1" aria-label="Home">
+<div class="intro">
+<div class="wrap intro-grid">
+<div class="intro-copy">
+<h1 class="title"><span class="title-word">barkhod</span><span class="splash" id="splash" aria-hidden="true">now with redis!</span></h1>
+<p class="intro-lead">I make the stuff that keeps Minecraft servers running, from plugins to the parts players never see.</p>
+<div class="actions">
+<a class="btn btn-go" href="#work">see my work</a>
+<a class="btn" href="#experience">experience</a>
+<a class="btn btn-ghost" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer">github ↗</a>
+</div>
+</div>
+<aside class="player" aria-label="Player card">
+<div class="player-head">
+<span class="player-face"><img src="assets/img/dc-avatar.jpg?v=2" alt="" width="256" height="256"></span>
+<div class="player-id">
+<p class="player-name"><span class="player-rank">DEV</span><span class="player-sep">〢</span>NxTbarkhod</p>
+</div>
+</div>
+<dl class="player-stats">
+<div><dt>since</dt><dd>2022</dd></div>
+<div><dt>main</dt><dd>Java · Spigot · Velocity</dd></div>
+<div><dt>data</dt><dd>Redis · MongoDB</dd></div>
+<div><dt>server</dt><dd class="aqua">MineHeaven</dd></div>
+</dl>
+<p class="player-lore">Turns ideas into working plugins.</p>
+</aside>
+</div>
+<a class="scroll-hint" href="#whoami"><span>more</span><i aria-hidden="true"></i></a>
+</div>
+
+<div class="wrap bento" id="whoami">
+<article class="card about-card" data-reveal>
+<h2 class="heading">who's barkhod?</h2>
+<p>Hey, I'm <b class="mc">barkhod</b>! I write code for Minecraft servers, and I've loved doing it since day one.</p>
+<p>I started in 2022, founded <a class="mc mc-pico" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer">PICOCRAFT</a> a year later, and these days I help out at <a class="mc mc-heaven" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer">MINEHEAVEN</a> and build things with my team at <a class="mc mc-ravell" href="ravell/">RAVELL</a>.</p>
+<p>Most of it is Java. <a class="link" href="#work">See what I've made →</a></p>
+</article>
+
+<figure class="card editor-card" data-reveal>
+<div class="editor-bar"><span class="editor-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="editor-tab">barkhodCore.java</span></div>
+<div class="editor-body">
+<pre class="editor-lines" id="editorLines" aria-hidden="true"></pre>
+<pre class="editor-code" id="editorCode"><span class="kw">package</span> com.barkhod.core;
+
+<span class="kw">import</span> org.bukkit.plugin.java.JavaPlugin;
+
+<span class="kw">public final class</span> <span class="tp">barkhodCore</span> <span class="kw">extends</span> <span class="tp">JavaPlugin</span> {
+
+    <span class="ann">@Override</span>
+    <span class="kw">public void</span> <span class="fn">onEnable</span>() {
+        <span class="fn">getLogger</span>().info(<span class="str">"barkhodCore enabled"</span>);
+    }
+
+    <span class="ann">@Override</span>
+    <span class="kw">public void</span> <span class="fn">onDisable</span>() {
+        <span class="fn">getLogger</span>().info(<span class="str">"barkhodCore disabled"</span>);
+    }
+}</pre>
+</div>
+</figure>
+
+<section class="card tools-card" aria-labelledby="toolsTitle" data-reveal>
+<h3 class="card-title" id="toolsTitle">toolbelt</h3>
+<div class="hotbar-wrap">
+<p class="held" id="held" aria-live="polite"></p>
+<ul class="hotbar" id="hotbar">
+<li><button class="slot" type="button" data-name="Java" style="--c:#e76f00"><img src="assets/icons/java.svg" alt="Java"></button></li>
+<li><button class="slot" type="button" data-name="MongoDB" style="--c:#47a248"><img src="assets/icons/mongodb.svg" alt="MongoDB"></button></li>
+<li><button class="slot" type="button" data-name="Redis" style="--c:#d82c20"><img src="assets/icons/redis.svg" alt="Redis"></button></li>
+<li><button class="slot" type="button" data-name="SQLite" style="--c:#0f80cc"><img src="assets/icons/sqlite.svg" alt="SQLite"></button></li>
+<li><button class="slot" type="button" data-name="Git" style="--c:#f05032"><img src="assets/icons/git.svg" alt="Git"></button></li>
+<li><button class="slot" type="button" data-name="Gradle" style="--c:#3fb6c6"><img src="assets/icons/gradle.svg" alt="Gradle"></button></li>
+<li><button class="slot" type="button" data-name="Apache Maven" style="--c:#c71a36"><img src="assets/icons/maven.svg" alt="Apache Maven"></button></li>
+<li><span class="slot is-empty" aria-hidden="true"></span></li>
+<li><span class="slot is-empty" aria-hidden="true"></span></li>
+</ul>
+</div>
+</section>
+</div>
+</section>
+
+<section class="page" id="experience" data-page="2" aria-label="Experience">
+<div class="wrap">
+<header class="page-head">
+<h2 class="heading">teams I've built for</h2>
+<p class="page-sub">Two I started and one I joined. Pick a team to rewind the clock.</p>
+</header>
+
+<div class="mc-clock" id="mcClock">
+<button class="mc-clock-face" id="mcClockFace" type="button" aria-label="Minecraft clock timeline. Click to spin it like in the Nether."><canvas id="mcClockCanvas" width="16" height="16" aria-hidden="true"></canvas></button>
+<div class="mc-clock-info">
+<div class="mc-clock-head"><span>Minecraft clock · timeline</span><b class="mc-clock-phase" id="mcClockPhase" data-phase="day">Now</b></div>
+<div class="mc-clock-readout"><span class="mc-clock-time" id="mcClockYear">2026</span></div>
+</div>
+<div class="mc-clock-day" aria-hidden="true">
+<div class="mc-clock-track" id="mcClockTrack"><span class="mc-clock-needle" id="mcClockNeedle"></span></div>
+<div class="mc-clock-labels" id="mcClockLabels"><span style="--at:0%">2022</span><span style="--at:25%">2023</span><span style="--at:50%">2024</span><span style="--at:75%">2025</span><span style="--at:100%">2026</span></div>
+</div>
+</div>
+
+<div class="guilds">
+<div class="guild-list" role="tablist" aria-label="Teams" aria-orientation="vertical">
+<button class="guild is-active" id="tab-picocraft" type="button" role="tab" aria-selected="true" aria-controls="job-picocraft" data-company="picocraft" data-year="2023"><span class="guild-logo" aria-hidden="true"><img src="assets/img/picocraft-logo.png" alt="" width="180" height="135"></span><span class="guild-text"><span class="guild-name">PicoCraft</span><span class="guild-role">Owner &amp; developer</span></span><span class="guild-year">2023</span></button>
+<button class="guild" id="tab-mineheaven" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="job-mineheaven" data-company="mineheaven" data-year="2026"><span class="guild-logo" aria-hidden="true"><img src="assets/img/mineheaven-logo.png" alt="" width="110" height="128"></span><span class="guild-text"><span class="guild-name">MineHeaven</span><span class="guild-role">Developer</span></span><span class="guild-year">2026</span></button>
+<button class="guild" id="tab-ravell" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="job-ravell" data-company="ravell" data-year="2026"><span class="guild-logo" aria-hidden="true"><img src="assets/img/ravell-icon.webp" alt="" width="900" height="900"></span><span class="guild-text"><span class="guild-name">Ravell</span><span class="guild-role">Owner</span></span><span class="guild-year">2026</span></button>
+</div>
+
+<article class="card guild-detail" id="job-picocraft" role="tabpanel" aria-labelledby="tab-picocraft" data-job="picocraft">
+<header class="detail-head">
+<div><p class="detail-kicker">owner &amp; developer</p><h3 class="detail-title"><span class="mc-pico">PICOCRAFT</span></h3></div>
+<span class="chip chip-now">2023 — now</span>
+</header>
+<ul class="detail-list">
+<li>Started it in 2023 and have been building it ever since</li>
+<li>Made most of what runs on it, and still look after it day to day</li>
+</ul>
+<ul class="chips" aria-label="Built with"><li class="chip t-java">Java</li><li class="chip t-spigot">Spigot</li><li class="chip t-mongo">MongoDB</li></ul>
+</article>
+
+<article class="card guild-detail" id="job-mineheaven" role="tabpanel" aria-labelledby="tab-mineheaven" data-job="mineheaven" hidden>
+<header class="detail-head">
+<div><p class="detail-kicker">developer</p><h3 class="detail-title"><span class="mc-heaven">MINEHEAVEN</span></h3></div>
+<span class="chip chip-now">2026 — now</span>
+</header>
+<ul class="detail-list">
+<li>Contributed to MineHeaven's core, and built its Donut Core myself</li>
+<li>Help keep things running smoothly across the network</li>
+</ul>
+<ul class="chips" aria-label="Built with"><li class="chip t-java">Java</li><li class="chip t-spigot">Spigot</li><li class="chip t-redis">Redis</li><li class="chip t-mongo">MongoDB</li></ul>
+</article>
+
+<article class="card guild-detail" id="job-ravell" role="tabpanel" aria-labelledby="tab-ravell" data-job="ravell" hidden>
+<header class="detail-head">
+<div><p class="detail-kicker">owner</p><h3 class="detail-title"><span class="mc-ravell">RAVELL</span></h3></div>
+<span class="chip chip-now">2026 — now</span>
+</header>
+<ul class="detail-list">
+<li>Building things together with Mxbin as Ravell Development</li>
+<li>Right now we're working on our own take on Hypixel's Housing</li>
+</ul>
+<ul class="chips" aria-label="Built with"><li class="chip t-java">Java</li></ul>
+<p><a class="btn" href="ravell/">open ravell's page &rarr;</a></p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="page" id="work" data-page="3" aria-label="Work">
+<div class="wrap">
+<header class="page-head">
+<h2 class="heading">stuff I've crafted</h2>
+<p class="page-sub">Plugins and systems running on real servers.</p>
+</header>
+<div class="items">
+<article class="item" style="--rarity:#55ffff;--rarity-day:#00868b">
+<div class="item-top">
+<span class="slot item-slot"><img src="assets/img/mineheaven-logo.png" alt="" width="110" height="128"></span>
+<div class="item-id"><h3 class="item-name">MineHeaven Core</h3><p class="item-meta">contributed · MineHeaven · 2026</p></div>
+<a class="item-link" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer" aria-label="MineHeaven Core on GitHub"><img class="icon-mono" src="assets/icons/github.svg" alt="" width="18" height="18"></a>
+</div>
+<p class="item-desc">The network's core: custom ranks and permissions, an in-game store with rank gifting, a network-wide economy, player tags and player status, plus the bug fixes that keep it all running.</p>
+<ul class="chips"><li class="chip t-java">Java</li><li class="chip t-redis">Redis</li><li class="chip t-mongo">MongoDB</li><li class="chip t-velocity">Velocity</li></ul>
+</article>
+<article class="item" style="--rarity:#55ffff;--rarity-day:#00868b">
+<div class="item-top">
+<span class="slot item-slot"><img src="assets/img/mineheaven-logo.png" alt="" width="110" height="128"></span>
+<div class="item-id"><h3 class="item-name">MineHeaven Donut Core</h3><p class="item-meta">MineHeaven · 2026</p></div>
+<a class="item-link" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer" aria-label="MineHeaven Donut Core on GitHub"><img class="icon-mono" src="assets/icons/github.svg" alt="" width="18" height="18"></a>
+</div>
+<p class="item-desc">DonutSMP's core systems, recreated for MineHeaven: its main gameplay features and mechanics.</p>
+<ul class="chips"><li class="chip t-java">Java</li><li class="chip t-mongo">MongoDB</li><li class="chip t-velocity">Velocity</li></ul>
+</article>
+<article class="item" style="--rarity:#ffaa00;--rarity-day:#b35f00">
+<div class="item-top">
+<span class="slot item-slot item-slot-photo"><img src="assets/img/Profile.jpg" alt="" width="460" height="460"></span>
+<div class="item-id"><h3 class="item-name">barkhod Core</h3><p class="item-meta">private · 2022</p></div>
+<a class="item-link" href="https://github.com/barkhod" target="_blank" rel="noreferrer" aria-label="barkhod Core on GitHub"><img class="icon-mono" src="assets/icons/github.svg" alt="" width="18" height="18"></a>
+</div>
+<p class="item-desc">My first Minecraft plugin, and it isn't finished: it's growing into the core of a personal SMP, with every system a survival server needs.</p>
+<ul class="chips"><li class="chip t-java">Java</li><li class="chip t-velocity">Velocity</li><li class="chip t-redis">Redis</li><li class="chip t-mongo">MongoDB</li></ul>
+</article>
+<article class="item" style="--rarity:#ff55ff;--rarity-day:#a100a1">
+<div class="item-top">
+<span class="slot item-slot item-slot-photo"><img src="assets/img/hypixel-logo.jpg" alt="" width="160" height="160"></span>
+<div class="item-id"><h3 class="item-name">Hypixel Dialogues</h3><p class="item-meta">open source · 2026</p></div>
+<a class="item-link" href="https://github.com/barkhod" target="_blank" rel="noreferrer" aria-label="Hypixel Dialogues on GitHub"><img class="icon-mono" src="assets/icons/github.svg" alt="" width="18" height="18"></a>
+</div>
+<p class="item-desc">Hypixel's NPC dialogue and conversation system, rebuilt from scratch.</p>
+<ul class="chips"><li class="chip t-java">Java</li></ul>
+</article>
+<a class="item item-more" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer"><span class="slot item-slot" aria-hidden="true">+</span><span>more on github ↗</span></a>
+</div>
+</div>
+</section>
+
+<section class="page" id="contact" data-page="4" aria-label="Discord">
+<div class="wrap">
+<header class="page-head page-head-center">
+<h2 class="heading">say hi</h2>
+<p class="page-sub">Discord is the quickest way to reach me.</p>
+</header>
+<div class="dc-card">
+<div class="dc-banner"><img src="assets/img/dc-banner.jpg" alt="barkhod banner"><span class="dc-banner-glow"></span></div>
+<div class="dc-avatar"><img class="dc-avatar-img" src="assets/img/dc-avatar.jpg?v=2" alt="barkhod" width="256" height="256" decoding="async"><span class="dc-status" id="dcStatus" data-state="online"></span></div>
+<div class="dc-id">
+<h3 class="dc-name">barkhod <span class="dc-cat">🎀</span><span class="dc-badges"><svg class="dc-badge" viewBox="0 0 24 24" role="img" aria-label="Active Developer"><path d="M12 2l2.6 6.8L21 11l-6.4 2.2L12 20l-2.6-6.8L3 11l6.4-2.2z"/></svg></span></h3>
+<p class="dc-user">barkhod_not • he/him</p>
+</div>
+<div class="dc-actions">
+<a class="dc-btn" id="dcMessage" href="https://discord.com/channels/@me" target="_blank" rel="noreferrer">Message</a>
+<a class="dc-btn" href="mailto:barkhod@gmail.com" target="_blank" rel="noreferrer">Work with barkhod</a>
+</div>
+<div class="dc-tabs"><button class="dc-tab active" type="button" data-dc="main">Main</button><button class="dc-tab" type="button" data-dc="board">Board</button></div>
+<div class="dc-panels">
+<div class="dc-panel" data-dc-panel="main">
+<p class="dc-label">Bio</p>
+<p class="dc-bio"><img class="dc-bio-icon" src="assets/img/mineheaven-logo.png" alt="MINEHEAVEN"> Developer Of @ <span class="mc-heaven">MINEHEAVEN</span></p>
+<p class="dc-label">Member Since</p>
+<p class="dc-date"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.6 5.3A16.4 16.4 0 0014.5 4l-.5 1a15 15 0 00-4 0L9.5 4a16.4 16.4 0 00-4.1 1.3C3 9 2.4 12.6 2.7 16.1A16.6 16.6 0 007.8 19l1.2-2a10 10 0 01-1.9-.9l.5-.3a12 12 0 0010.8 0l.5.3c-.6.4-1.2.7-1.9.9l1.2 2a16.6 16.6 0 005.1-2.9c.4-4-.7-7.5-2.7-10.8zM9.7 14.2c-.8 0-1.4-.7-1.4-1.6 0-.9.6-1.6 1.4-1.6.8 0 1.4.7 1.4 1.6 0 .9-.6 1.6-1.4 1.6zm4.6 0c-.8 0-1.4-.7-1.4-1.6 0-.9.6-1.6 1.4-1.6.8 0 1.4.7 1.4 1.6 0 .9-.6 1.6-1.4 1.6z"/></svg> Mar 5, 2025</p>
+<p class="dc-label">Friends Since</p>
+<p class="dc-date">Sep 14, 2026</p>
+<p class="dc-label">Connections</p>
+<div class="dc-conns">
+<a class="dc-conn" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>barkhod</span><svg class="dc-check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#0b0d12" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="dc-open">↗</span></a>
+<a class="dc-conn" href="https://open.spotify.com/user/barkhod" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 14.4a.7.7 0 01-1 .2c-2.7-1.6-6-2-10-.9a.7.7 0 11-.3-1.4c4.4-1.2 8.1-.7 11.1 1.1.4.2.4.8.2 1zm1.3-2.8a.9.9 0 01-1.2.3c-3-1.9-7.7-2.4-11.3-1.3a.9.9 0 11-.5-1.7c4.1-1.2 9.3-.7 12.8 1.5.4.3.5.9.2 1.2zm.1-2.9c-3.6-2.1-9.6-2.3-13-1.3a1 1 0 11-.6-1.9c3.7-1.1 10.4-.9 14.5 1.4a1 1 0 01-1 1.8z"/></svg><span>barkhod</span><svg class="dc-check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#0b0d12" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="dc-open">↗</span></a>
+<a class="dc-conn" href="https://www.youtube.com/@Barkhod" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.3-.4-4.8a2.5 2.5 0 00-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.4A2.5 2.5 0 002.4 7.2C2 8.7 2 12 2 12s0 3.3.4 4.8c.2.9.9 1.6 1.8 1.8 1.5.4 7.8.4 7.8.4s6.3 0 7.8-.4a2.5 2.5 0 001.8-1.8c.4-1.5.4-4.8.4-4.8zM10 15.2V8.8L15.5 12z"/></svg><span>barkhod</span><svg class="dc-check" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#0b0d12" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="dc-open">↗</span></a>
+</div>
+</div>
+<div class="dc-panel" data-dc-panel="board" hidden>
+<p class="dc-label">Projects</p>
+<div class="dc-conns">
+<a class="dc-conn" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer"><span class="dc-mark">MH</span><span>MINEHEAVEN CORE</span><span class="dc-year">2026</span><span class="dc-open">↗</span></a>
+<a class="dc-conn" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer"><span class="dc-mark">MH</span><span>MINEHEAVEN DONUT CORE</span><span class="dc-year">2026</span><span class="dc-open">↗</span></a>
+<a class="dc-conn" href="https://github.com/barkhod" target="_blank" rel="noreferrer"><span class="dc-mark">ba</span><span>barkhod CORE</span><span class="dc-year">2022</span><span class="dc-open">↗</span></a>
+<a class="dc-conn" href="https://github.com/mineheavendevelopment" target="_blank" rel="noreferrer"><span class="dc-mark">H</span><span>HYPIXEL DIALOGUES</span><span class="dc-year">2026</span><span class="dc-open">↗</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="foot">
+<div class="wrap foot-in">
+<span class="foot-brand"><img src="assets/img/logo.png?v=1" alt="" width="20" height="20">barkhod</span>
+<span class="foot-note">© 2026 · made in the overworld</span>
+<button class="foot-top" id="backToTop" type="button">back to top ↑</button>
+</div>
+</footer>
+
+<script src="assets/js/unique-bg.js?v=3" defer></script>
+<script src="assets/js/scroll-3d.js?v=12" defer></script>
+<script src="assets/js/main.js?v=8" defer></script>
+<script src="assets/js/mc-clock.js?v=3" defer></script>
+<script src="assets/js/lamp.js?v=2" defer></script>
+<script src="assets/js/cursor.js?v=4" defer></script>
+<script src="assets/js/pager.js?v=21" defer></script>
+</body>
+</html>

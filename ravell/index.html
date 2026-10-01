@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ravell Development</title>
+<meta name="description" content="Ravell Development is a team that takes on all kinds of projects. Right now we're rebuilding Hypixel's Housing from scratch.">
+<meta name="theme-color" content="#070304">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ravell Development">
+<meta property="og:description" content="One team, many ideas. Now building: Hypixel's Housing, rebuilt from scratch.">
+<meta property="og:url" content="https://barkhod.github.io/ravell/">
+<meta property="og:image" content="https://barkhod.github.io/assets/img/ravell-banner.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/webp" href="../assets/img/ravell-icon.webp">
+<link rel="apple-touch-icon" href="../assets/img/ravell-icon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/ravell.css?v=8">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="rv-bar" id="rvBar">
+<div class="rv-bar-in">
+<a class="rv-brand" href="#main" aria-label="Ravell Development, back to the top"><img src="../assets/img/ravell-icon.webp" alt="" width="900" height="900"><span>Ravell</span></a>
+<nav class="rv-nav" aria-label="Sections">
+<a href="#about">about</a>
+<a href="#project">project</a>
+<a href="#try">try it</a>
+<a href="#team">team</a>
+</nav>
+<a class="rv-gh" href="https://github.com/RavellDevelopment" target="_blank" rel="noreferrer" aria-label="Ravell Development on GitHub"><img src="../assets/icons/github.svg" alt="" width="22" height="22"></a>
+<a class="rv-back" href="../"><img src="../assets/img/logo.png?v=1" alt="" width="32" height="32"><span>barkhod</span></a>
+</div>
+</header>
+
+<main id="main">
+<section class="rv-hero" aria-label="Ravell Development">
+<canvas class="rv-embers" id="rvEmbers" aria-hidden="true"></canvas>
+<div class="rv-hero-in">
+<h1 class="rv-logo"><img src="../assets/img/ravell-banner.webp" alt="Ravell" width="1500" height="600" fetchpriority="high"></h1>
+<p class="rv-tagline">One team, many ideas.</p>
+<p class="rv-lead">Howdy! We're Ravell Development, and right now we're rebuilding Hypixel's Housing from scratch. Take a look below to see what it's all about!</p>
+<div class="rv-cta">
+<a class="rv-btn rv-btn-gold" href="#project">see the project</a>
+<a class="rv-btn" href="#team">meet the team</a>
+</div>
+<p class="rv-status"><span class="rv-dot" aria-hidden="true"></span>now building: Housing</p>
+</div>
+</section>
+
+<section class="rv-section" id="about" aria-labelledby="aboutTitle">
+<div class="rv-wrap">
+<header class="rv-head rv-reveal">
+<p class="rv-kicker">who we are</p>
+<h2 class="rv-h2" id="aboutTitle">Ravell Development</h2>
+<p class="rv-sub">We're a team that loves building things together! Right now, we're working on a rebuild of Hypixel's Housing.</p>
+</header>
+</div>
+</section>
+
+<section class="rv-section" id="project" aria-labelledby="projectTitle">
+<div class="rv-wrap">
+<header class="rv-head rv-reveal">
+<p class="rv-kicker">current project</p>
+<h2 class="rv-h2" id="projectTitle">Housing, rebuilt</h2>
+<p class="rv-sub">Our own take on Hypixel's Housing, where every player gets a house to build and play with however they like. It won't be a perfect copy, but we're putting everything we've got into it.</p>
+</header>
+</div>
+</section>
+
+<section class="rv-section rv-try" id="try" aria-labelledby="tryTitle">
+<div class="rv-wrap">
+<header class="rv-head rv-reveal">
+<p class="rv-kicker">try it</p>
+<h2 class="rv-h2" id="tryTitle">Actions, not code</h2>
+<p class="rv-sub">This is how a house comes alive! Pick a trigger, stack up to six actions and hit run.</p>
+</header>
+
+<div class="ae rv-reveal" id="ae">
+<div class="ae-gui">
+<p class="ae-title"><span id="aeTitle">Event Actions: Player Join</span></p>
+
+<div class="ae-group">
+<p class="ae-label" id="aeWhen">When</p>
+<div class="ae-triggers" id="aeTriggers" role="radiogroup" aria-labelledby="aeWhen">
+<button class="ae-trigger" type="button" role="radio" aria-checked="true" data-trigger="join">Player Join</button>
+<button class="ae-trigger" type="button" role="radio" aria-checked="false" tabindex="-1" data-trigger="npc">Click NPC</button>
+<button class="ae-trigger" type="button" role="radio" aria-checked="false" tabindex="-1" data-trigger="parkour">Finish Parkour</button>
+</div>
+</div>
+
+<div class="ae-group">
+<p class="ae-label">Add an action</p>
+<div class="ae-palette" id="aePalette"></div>
+<div class="ae-info" id="aeInfo" aria-live="polite"><b>Event Actions</b><span>Hover or tap an item to see what it does.</span></div>
+</div>
+
+<div class="ae-group">
+<p class="ae-label"><span>Then, in order</span><span id="aeCount">0/6</span></p>
+<ol class="ae-list" id="aeList"></ol>
+</div>
+
+<div class="ae-run-row">
+<button class="rv-btn rv-btn-gold ae-run" id="aeRun" type="button">&#9654; Run</button>
+<button class="rv-btn" id="aeClear" type="button">Clear</button>
+</div>
+<noscript><p class="ae-empty">Turn on JavaScript to try the editor.</p></noscript>
+</div>
+
+<div class="ae-screen" id="aeScreen">
+<canvas class="ae-world" id="aeWorld" width="256" height="144" role="img" aria-label="Preview: a small Minecraft scene with a house, an NPC and a parkour."></canvas>
+<div class="ae-hud">
+<div class="ae-board" id="aeBoard" aria-hidden="true"></div>
+<div class="ae-tag" id="aeTag" aria-hidden="true"></div>
+<div class="ae-titles" id="aeTitles" aria-hidden="true"><b></b><span></span></div>
+<ol class="ae-chat" id="aeChat" aria-live="polite" aria-label="Chat"></ol>
+<p class="ae-bar" id="aeBar" aria-hidden="true"></p>
+<div class="ae-hotbar" id="aeHotbar" aria-hidden="true"></div>
+<p class="ae-pop" id="aePop" aria-hidden="true"></p>
+</div>
+<button class="ae-mute" id="aeMute" type="button" aria-pressed="false" aria-label="Mute sounds">
+<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path class="ae-mute-spk" d="M2 6h3l4-3v10l-4-3H2z"/><path class="ae-mute-on" d="M11 5.5c1 .7 1.5 1.5 1.5 2.5s-.5 1.8-1.5 2.5M12.6 3.6c1.5 1.1 2.4 2.6 2.4 4.4s-.9 3.3-2.4 4.4"/><path class="ae-mute-off" d="M11 6l4 4M15 6l-4 4"/></svg>
+</button>
+</div>
+</div>
+<p class="rv-note">A simplified preview made for this page.</p>
+</div>
+</section>
+
+<section class="rv-section" id="team" aria-labelledby="teamTitle">
+<div class="rv-wrap">
+<header class="rv-head rv-reveal">
+<p class="rv-kicker">the team</p>
+<h2 class="rv-h2" id="teamTitle">Meet the team</h2>
+</header>
+<ul class="rv-team">
+<li class="rv-member rv-reveal">
+<img class="rv-member-face" src="../assets/img/dc-avatar.jpg?v=2" alt="" width="256" height="256" loading="lazy">
+<div class="rv-member-text"><h3 class="rv-ign">[OWNER] NxTbarkhod</h3></div>
+</li>
+<li class="rv-member rv-reveal">
+<img class="rv-member-face" src="../assets/img/mxbin-avatar.jpg" alt="" width="256" height="256" loading="lazy">
+<div class="rv-member-text"><h3 class="rv-ign">[OWNER] l5or</h3></div>
+</li>
+</ul>
+</div>
+</section>
+
+<section class="rv-section" id="follow" aria-labelledby="followTitle">
+<div class="rv-wrap">
+<div class="rv-follow rv-reveal">
+<img class="rv-follow-icon" src="../assets/img/ravell-icon.webp" alt="" width="900" height="900" loading="lazy">
+<div class="rv-follow-text">
+<h2 class="rv-h2" id="followTitle">See what we build next</h2>
+<p class="rv-sub">Make sure to stay tuned, or come say hi on Discord!</p>
+</div>
+<div class="rv-cta">
+<a class="rv-btn rv-btn-gold" href="../#contact">say hi on discord</a>
+<a class="rv-btn" href="https://github.com/RavellDevelopment" target="_blank" rel="noreferrer">github &#8599;</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="rv-foot">
+<div class="rv-wrap rv-foot-in">
+<p>&copy; 2026 Ravell Development</p>
+<p>Not affiliated with Hypixel Inc. or Mojang Studios.</p>
+</div>
+</footer>
+
+<script src="../assets/js/ravell.js?v=2" defer></script>
+</body>
+</html>
