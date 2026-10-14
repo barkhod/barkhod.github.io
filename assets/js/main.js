@@ -6,7 +6,7 @@ link.setAttribute("rel","noreferrer");
 });
 
 // A new splash line on every visit, like the game's title screen.
-var SPLASHES=["now with redis!","100% java!","plugins > sleep!","also try picocraft!","tps: 20.0!","mongodb inside!","crafted, not copied!","works on my server!","ping: 1ms!"];
+var SPLASHES=["now with redis!","100% java!","Check Out Ravell!","also try MineHeaven!","tps: 20.0!","mongodb inside!","crafted, not copied!","works on my server!","ping: 1ms!"];
 var splash=document.getElementById("splash");
 if(splash){splash.textContent=SPLASHES[Math.random()*SPLASHES.length|0];}
 
